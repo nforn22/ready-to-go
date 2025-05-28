@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Header from './components/Header/Header'
 import SwitchButton from './components/Buttons/SwitchButton'
 import ActionButton from './components/Buttons/ActionButton'
+import ResetButton from './components/Buttons/ResetButton'
 import Footer from './components/Footer/Footer'
 import './App.css'
 
@@ -13,6 +14,13 @@ function App() {
 
   // vérifie si tout les interrupteurs sont sur ON
   const allSwitchesOn = switch1 && switch2 && switch3;
+
+  // reset => remet tout les interupteurs sur OFF
+  const resetAllSwitches = () => {
+    setSwitch1(false)
+    setSwitch2(false)
+    setSwitch3(false)
+  }
 
   return (
     <>
@@ -35,7 +43,10 @@ function App() {
           />
         </div>
 
-        <ActionButton allSwitchesOn={allSwitchesOn} />
+        <div className="buttons-container">
+          <ActionButton allSwitchesOn={allSwitchesOn} />
+          <ResetButton onReset={resetAllSwitches} />
+        </div>
       </main>
 
       <Footer />
