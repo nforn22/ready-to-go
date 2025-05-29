@@ -4,7 +4,7 @@ function ResetButton({ onReset }) {
             className='reset-btn'
             onClick={onReset}
         >
-            RESET 🔄
+            Reset <i className="fa-solid fa-arrows-rotate"></i>
         </button>
     )
 }
